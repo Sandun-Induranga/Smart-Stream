@@ -1,4 +1,2 @@
-export const routes = {
-  SIGN_IN: "/",
-  HOME: "/home",
-};
+export const DEFAULT_ROUTE = "/";
+export const HOME_ROUTE = "/home";

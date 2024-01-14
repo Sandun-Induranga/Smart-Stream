@@ -1,7 +1,7 @@
-import SignIn from "./pages/SignIn/SignIn";
+import PageRoutes from "./components/Routes/PageRoutes";
 
 const App = () => {
-  return <SignIn />;
+  return <PageRoutes />;
 };
 
 export default App;
