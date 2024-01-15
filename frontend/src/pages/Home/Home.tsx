@@ -1,21 +1,22 @@
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import TopBar from "../../components/TopBar/TopBar";
 
 const Home = () => {
   return (
-    <Container component="main" maxWidth="xs">
+    <Box sx={{ minHeight: "100vh" }}>
       <TopBar />
       <Box
         sx={{
-          marginTop: 8,
+          height: "90vh",
+          // background: "red",
           display: "flex",
-          flexDirection: "column",
+          justifyContent: "center",
           alignItems: "center",
         }}
       >
-        Home
+        <h1>Home</h1>
       </Box>
-    </Container>
+    </Box>
   );
 };
 

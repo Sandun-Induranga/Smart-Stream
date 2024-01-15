@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Checkbox,
-  Container,
   FormControlLabel,
   Grid,
   Link,
@@ -12,10 +11,10 @@ import {
 
 const SignIn = () => {
   return (
-    <Container component="main" maxWidth="xs">
+    <Box>
       <Box
         sx={{
-          marginTop: 8,
+          // marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -71,7 +70,7 @@ const SignIn = () => {
           </Grid>
         </Box>
       </Box>
-    </Container>
+    </Box>
   );
 };
 
