@@ -3,7 +3,7 @@ import TopBar from "../../components/TopBar/TopBar";
 
 const Home = () => {
   return (
-    <Box sx={{ minHeight: "100vh" }}>
+    <Box sx={{ minHeight: "100vh", p: 0 }}>
       <TopBar />
       <Box
         sx={{
