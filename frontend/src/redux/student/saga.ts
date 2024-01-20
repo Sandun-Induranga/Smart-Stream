@@ -50,7 +50,7 @@ function* updateStudent(action: PayloadAction<IStudentData>) {
   };
 
   try {
-    yield call(api.post, `/student/${studentId}`, student, {
+    yield call(api.put, `/student/${studentId}`, student, {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {

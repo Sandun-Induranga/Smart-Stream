@@ -33,7 +33,6 @@ class Student(BaseModel):
 def get_students():
     students = list(collection.find())
     
-    # Convert ObjectId to string for each student in the list
     for student in students:
         student['_id'] = str(student['_id'])
     return JSONResponse(content=jsonable_encoder(students), status_code=200)
@@ -53,9 +52,15 @@ def add_student(student: Student):
 
 @app.put("/student/{id}")
 def update_student(id: int, student: Student):
-    student = collection.find_one_and_update({"id": id}, {"$set": student.dict(by_alias=True)})
-    if student:
-        return JSONResponse(content=jsonable_encoder(student), status_code=200)
+    updated_student = collection.find_one_and_update(
+        {"studentId": id},
+        {"$set": student.dict(by_alias=True)},
+        return_document=True
+    )
+
+    if updated_student:
+        updated_student["_id"] = str(updated_student["_id"])
+        return JSONResponse(content=jsonable_encoder(updated_student), status_code=200)
     else:
         raise HTTPException(status_code=404, detail="Student not found")
     
