@@ -92,33 +92,38 @@ const Student = () => {
           />
           <TextField
             label="Student Name"
-            value={""}
-            onChange={() => {}}
+            value={formData.name}
+            onChange={(e) => {
+              setFormData({ ...formData, name: e.target.value });
+            }}
             margin="normal"
             fullWidth
           />
           <TextField
             label="Address"
-            name="email"
-            value={""}
-            onChange={() => {}}
+            value={formData.address}
+            onChange={(e) => {
+              setFormData({ ...formData, address: e.target.value });
+            }}
             margin="normal"
             fullWidth
           />
           <TextField
             label="Birthday"
-            name="email"
             type="date"
-            value={""}
-            onChange={() => {}}
+            value={formData.dob}
+            onChange={(e) => {
+              setFormData({ ...formData, dob: e.target.value });
+            }}
             margin="normal"
             fullWidth
           />
           <TextField
             label="Mobile"
-            name="email"
-            value={""}
-            onChange={() => {}}
+            value={formData.mobile}
+            onChange={(e) => {
+              setFormData({ ...formData, mobile: e.target.value });
+            }}
             margin="normal"
             fullWidth
           />
