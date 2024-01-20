@@ -57,7 +57,6 @@ def update_student(id: int, student: Student):
         {"$set": student.dict(by_alias=True)},
         return_document=True
     )
-
     if updated_student:
         updated_student["_id"] = str(updated_student["_id"])
         return JSONResponse(content=jsonable_encoder(updated_student), status_code=200)
@@ -66,11 +65,14 @@ def update_student(id: int, student: Student):
     
 @app.delete("/student/{id}")
 def delete_student(id: int):
-    student = collection.find_one_and_delete({"id": id})
+    student = collection.find_one_and_delete({"studentId": id})
+
     if student:
+        student["_id"] = str(student["_id"])
         return JSONResponse(content=jsonable_encoder(student), status_code=200)
     else:
         raise HTTPException(status_code=404, detail="Student not found")
+    
     
 if __name__ == "__main__":
     import uvicorn
