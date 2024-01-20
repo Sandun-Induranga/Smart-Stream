@@ -2,6 +2,7 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { api } from "../../api/api";
 import { studentActions } from "./slice";
+import { toast } from "react-toastify";
 
 interface IStudentData {
   studentId: string;
@@ -62,6 +63,7 @@ function* getAllStudents() {
   try {
     const response: IResponse = yield call(api.get, "/student");
     yield put(studentActions.setStudent(response.data));
+    toast("Student List Fetched");
   } catch (error) {
     alert(error);
   }
