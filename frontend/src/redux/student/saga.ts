@@ -34,6 +34,7 @@ function* saveStudent(action: PayloadAction<IStudentData>) {
       headers: { "Content-Type": "application/json" },
     });
     toast("Student Added Successfully..!", { type: "success" });
+    yield put(studentActions.fetchStudent());
   } catch (error) {
     toast("Something Went Wrong..!", { type: "error" });
   }
@@ -56,6 +57,7 @@ function* updateStudent(action: PayloadAction<IStudentData>) {
       headers: { "Content-Type": "application/json" },
     });
     toast("Student Updated Successfully..!", { type: "success" });
+    yield put(studentActions.fetchStudent());
   } catch (error) {
     toast("Something Went Wrong..!", { type: "error" });
   }
@@ -66,6 +68,7 @@ function* getAllStudents() {
     const response: IResponse = yield call(api.get, "/student");
     yield put(studentActions.setStudent(response.data));
     toast("Student List Fetched..!", { type: "success" });
+    yield put(studentActions.fetchStudent());
   } catch (error) {
     toast("Something Went Wrong..!", { type: "error" });
   }
@@ -77,6 +80,7 @@ function* deleteStudent(action: PayloadAction<string>) {
   try {
     yield call(api.delete, `/student/${id}`);
     toast("Student Deleted Successfully..!", { type: "success" });
+    yield put(studentActions.fetchStudent());
   } catch (error) {
     toast("Something Went Wrong..!", { type: "error" });
   }
