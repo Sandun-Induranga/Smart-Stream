@@ -131,9 +131,24 @@ const Student = () => {
             <MenuItem value={"male"}>Male</MenuItem>
             <MenuItem value={"female"}>Female</MenuItem>
           </Select>
-          <Button type="submit" variant="contained" color="primary">
-            Submit
-          </Button>
+          <Box
+            sx={{
+              mt: 2,
+              display: "flex",
+              width: "100%",
+              gap: 2,
+            }}
+          >
+            <Button type="submit" variant="contained" color="success">
+              Save
+            </Button>
+            <Button type="submit" variant="contained" color="warning">
+              Update
+            </Button>
+            <Button type="submit" variant="contained" color="error">
+              Delete
+            </Button>
+          </Box>
         </Box>
       </Grid>
     </Grid>
