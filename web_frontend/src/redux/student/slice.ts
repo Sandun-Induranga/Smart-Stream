@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface IStudent {
-  studentId: number;
+  studentId: string;
   name: string;
   address: string;
   mobile: string;
@@ -22,7 +22,7 @@ export const studentSlice = createSlice({
   initialState,
   reducers: {
     addStudent: (state, action: PayloadAction<IStudent>) => {},
-    removeStudent: (state, action: PayloadAction<number>) => {
+    removeStudent: (state, action: PayloadAction<string>) => {
       state.studentList = state.studentList.filter(
         (student) => student.studentId != action.payload
       );

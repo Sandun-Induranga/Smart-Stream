@@ -20,7 +20,7 @@ import { studentActions } from "../../../redux/student/slice";
 import { generateAge } from "../../../util/generateAgeUtil";
 
 interface IStudentData {
-  studentId: number;
+  studentId: string;
   name: string;
   address: string;
   mobile: string;
@@ -35,7 +35,7 @@ const Student = () => {
     (state: RootState) => state.studentList.studentList
   );
   const [formData, setFormData] = useState<IStudentData>({
-    studentId: 0,
+    studentId: "",
     name: "",
     address: "",
     mobile: "",
@@ -53,6 +53,10 @@ const Student = () => {
 
   const handleUpdateStudent = () => {
     dispatch(studentActions.updateStudent(formData));
+  };
+
+  const handleDeleteStudent = () => {
+    dispatch(studentActions.removeStudent(formData.studentId));
   };
 
   return (
@@ -93,7 +97,7 @@ const Student = () => {
             label="Student ID"
             value={formData.studentId}
             onChange={(e) => {
-              setFormData({ ...formData, studentId: parseInt(e.target.value) });
+              setFormData({ ...formData, studentId: e.target.value });
             }}
             margin="normal"
             fullWidth
@@ -135,9 +139,16 @@ const Student = () => {
             margin="normal"
             fullWidth
           />
-          <Select fullWidth value={"male"} label="Gender">
-            <MenuItem value={"male"}>Male</MenuItem>
-            <MenuItem value={"female"}>Female</MenuItem>
+          <Select
+            fullWidth
+            value={formData.gender}
+            label="Gender"
+            onChange={(e) => {
+              setFormData({ ...formData, gender: e.target.value });
+            }}
+          >
+            <MenuItem value={"Male"}>Male</MenuItem>
+            <MenuItem value={"Female"}>Female</MenuItem>
           </Select>
           <Box
             sx={{
@@ -147,13 +158,25 @@ const Student = () => {
               gap: 2,
             }}
           >
-            <Button variant="contained" color="success">
+            <Button
+              variant="contained"
+              color="success"
+              onClick={handleSaveStudent}
+            >
               Save
             </Button>
-            <Button variant="contained" color="warning">
+            <Button
+              variant="contained"
+              color="warning"
+              onClick={handleUpdateStudent}
+            >
               Update
             </Button>
-            <Button variant="contained" color="error">
+            <Button
+              variant="contained"
+              color="error"
+              onClick={handleDeleteStudent}
+            >
               Delete
             </Button>
           </Box>

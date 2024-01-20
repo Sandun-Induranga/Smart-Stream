@@ -4,7 +4,7 @@ import { api } from "../../api/api";
 import { studentActions } from "./slice";
 
 interface IStudentData {
-  studentId: number;
+  studentId: string;
   name: string;
   address: string;
   mobile: string;
@@ -67,7 +67,7 @@ function* getAllStudents() {
   }
 }
 
-function* deleteStudent(action: PayloadAction<number>) {
+function* deleteStudent(action: PayloadAction<string>) {
   const id = action.payload;
 
   try {
