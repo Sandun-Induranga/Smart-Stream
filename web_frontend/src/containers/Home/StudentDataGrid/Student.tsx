@@ -18,6 +18,11 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { studentActions } from "../../../redux/student/slice";
 import { generateAge } from "../../../util/generateAgeUtil";
+import {
+  validateAddress,
+  validateMobile,
+  validateName,
+} from "../../../util/validationUtil";
 
 interface IStudentData {
   studentId: string;
@@ -42,6 +47,7 @@ const Student = () => {
     dob: "",
     gender: "",
   });
+  const [errors, setErrors] = useState<string[]>([]);
 
   useEffect(() => {
     dispatch(studentActions.fetchStudent());
@@ -57,6 +63,10 @@ const Student = () => {
 
   const handleDeleteStudent = () => {
     dispatch(studentActions.removeStudent(formData.studentId));
+  };
+
+  const handleSelectStudent = (student: IStudentData) => {
+    setFormData(student);
   };
 
   return (
@@ -77,7 +87,12 @@ const Student = () => {
             </TableHead>
             <TableBody>
               {studentList.map((row) => (
-                <TableRow key={row.studentId}>
+                <TableRow
+                  key={row.studentId}
+                  onClick={() => {
+                    handleSelectStudent(row);
+                  }}
+                >
                   <TableCell>{row.studentId}</TableCell>
                   <TableCell>{row.name}</TableCell>
                   <TableCell>{row.address}</TableCell>
@@ -105,7 +120,11 @@ const Student = () => {
           <TextField
             label="Student Name"
             value={formData.name}
+            color={errors.includes("name") ? "error" : "success"}
             onChange={(e) => {
+              validateName(e.target.value)
+                ? setErrors([...errors.filter((error) => error !== "name")])
+                : setErrors([...errors, "name"]);
               setFormData({ ...formData, name: e.target.value });
             }}
             margin="normal"
@@ -114,7 +133,11 @@ const Student = () => {
           <TextField
             label="Address"
             value={formData.address}
+            color={errors.includes("address") ? "error" : "success"}
             onChange={(e) => {
+              validateAddress(e.target.value)
+                ? setErrors([...errors.filter((error) => error !== "address")])
+                : setErrors([...errors, "address"]);
               setFormData({ ...formData, address: e.target.value });
             }}
             margin="normal"
@@ -133,7 +156,11 @@ const Student = () => {
           <TextField
             label="Mobile"
             value={formData.mobile}
+            color={errors.includes("mobile") ? "error" : "success"}
             onChange={(e) => {
+              validateMobile(e.target.value)
+                ? setErrors([...errors.filter((error) => error !== "mobile")])
+                : setErrors([...errors, "mobile"]);
               setFormData({ ...formData, mobile: e.target.value });
             }}
             margin="normal"
