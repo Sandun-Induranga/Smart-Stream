@@ -68,7 +68,6 @@ function* getAllStudents() {
     const response: IResponse = yield call(api.get, "/student");
     yield put(studentActions.setStudent(response.data));
     toast("Student List Fetched..!", { type: "success" });
-    yield put(studentActions.fetchStudent());
   } catch (error) {
     toast("Something Went Wrong..!", { type: "error" });
   }
