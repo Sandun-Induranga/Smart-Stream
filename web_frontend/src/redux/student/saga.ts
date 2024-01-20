@@ -16,7 +16,7 @@ interface IResponse {
   data: IStudentData[];
 }
 
-function* saveAndUpdateStudent(action: PayloadAction<IStudentData>) {
+function* saveStudent(action: PayloadAction<IStudentData>) {
   const { studentId, name, address, mobile, dob, gender } = action.payload;
 
   const student = {
@@ -28,17 +28,31 @@ function* saveAndUpdateStudent(action: PayloadAction<IStudentData>) {
     gender: gender,
   };
 
-  const isUpdate: boolean = studentId != -1;
+  try {
+    yield call(api.post, "/student", student, {
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    alert(error);
+  }
+}
+
+function* updateStudent(action: PayloadAction<IStudentData>) {
+  const { studentId, name, address, mobile, dob, gender } = action.payload;
+
+  const student = {
+    studentId: studentId,
+    name: name,
+    address: address,
+    mobile: mobile,
+    dob: dob,
+    gender: gender,
+  };
 
   try {
-    yield call(
-      isUpdate ? api.put : api.post,
-      `/student/${isUpdate ? studentId : ""}`,
-      student,
-      {
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    yield call(api.post, `/student/${studentId}`, student, {
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error) {
     alert(error);
   }
@@ -65,6 +79,7 @@ function* deleteStudent(action: PayloadAction<number>) {
 
 export function* studentSaga() {
   yield takeEvery(studentActions.fetchStudent.type, getAllStudents);
-  yield takeEvery(studentActions.updateStudent, saveAndUpdateStudent);
+  yield takeEvery(studentActions.updateStudent, updateStudent);
+  yield takeEvery(studentActions.addStudent, saveStudent);
   yield takeEvery(studentActions.removeStudent, deleteStudent);
 }

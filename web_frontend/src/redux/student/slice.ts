@@ -14,26 +14,14 @@ interface IStudentState {
 }
 
 const initialState: IStudentState = {
-  studentList: [
-    {
-      studentId: 1,
-      name: "John",
-      address: "USA",
-      mobile: "1234567890",
-      dob: new Date("1990-01-01").toDateString(),
-      gender: "Male",
-    },
-  ],
+  studentList: [],
 };
 
 export const studentSlice = createSlice({
   name: "studentList",
   initialState,
   reducers: {
-    addStudent: (state, action: PayloadAction<IStudent>) => {
-      const row = action.payload;
-      state.studentList.unshift(row);
-    },
+    addStudent: (state, action: PayloadAction<IStudent>) => {},
     removeStudent: (state, action: PayloadAction<number>) => {
       state.studentList = state.studentList.filter(
         (student) => student.studentId != action.payload

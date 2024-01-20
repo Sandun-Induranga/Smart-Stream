@@ -47,6 +47,14 @@ const Student = () => {
     dispatch(studentActions.fetchStudent());
   }, [dispatch]);
 
+  const handleSaveStudent = () => {
+    dispatch(studentActions.addStudent(formData));
+  };
+
+  const handleUpdateStudent = () => {
+    dispatch(studentActions.updateStudent(formData));
+  };
+
   return (
     <Grid container gap={2}>
       <Grid item xs={12} md={6}>
@@ -139,13 +147,13 @@ const Student = () => {
               gap: 2,
             }}
           >
-            <Button type="submit" variant="contained" color="success">
+            <Button variant="contained" color="success">
               Save
             </Button>
-            <Button type="submit" variant="contained" color="warning">
+            <Button variant="contained" color="warning">
               Update
             </Button>
-            <Button type="submit" variant="contained" color="error">
+            <Button variant="contained" color="error">
               Delete
             </Button>
           </Box>
