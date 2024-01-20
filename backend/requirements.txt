@@ -1,3 +1,7 @@
 fastapi
 uvicorn
 pymongo
+pandas
+matplotlib
+scikit-learn
+numpy
