@@ -114,7 +114,7 @@ const Student = () => {
             onChange={(e) => {
               setFormData({ ...formData, studentId: e.target.value });
             }}
-            margin="normal"
+            margin="dense"
             fullWidth
           />
           <TextField
@@ -127,7 +127,7 @@ const Student = () => {
                 : setErrors([...errors, "name"]);
               setFormData({ ...formData, name: e.target.value });
             }}
-            margin="normal"
+            margin="dense"
             fullWidth
           />
           <TextField
@@ -140,7 +140,7 @@ const Student = () => {
                 : setErrors([...errors, "address"]);
               setFormData({ ...formData, address: e.target.value });
             }}
-            margin="normal"
+            margin="dense"
             fullWidth
           />
           <TextField
@@ -150,7 +150,7 @@ const Student = () => {
             onChange={(e) => {
               setFormData({ ...formData, dob: e.target.value });
             }}
-            margin="normal"
+            margin="dense"
             fullWidth
           />
           <TextField
@@ -163,11 +163,12 @@ const Student = () => {
                 : setErrors([...errors, "mobile"]);
               setFormData({ ...formData, mobile: e.target.value });
             }}
-            margin="normal"
+            margin="dense"
             fullWidth
           />
           <Select
             fullWidth
+            sx={{ mt: 1 }}
             value={formData.gender}
             label="Gender"
             onChange={(e) => {
