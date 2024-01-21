@@ -44,7 +44,7 @@ def predict_subject_stream(id: int):
         if subject in ['Maths', 'Science', 'Commerce']:
             streams[subject] += predicted_scores[0][i]
         elif subject in ['Sinhala', 'English']:
-            streams['Arts'] += predicted_scores[0][i]
+            streams['Arts'] += predicted_scores[0][i] / 2
         elif subject == 'ICT':
             streams['Technology'] += predicted_scores[0][i]
 
