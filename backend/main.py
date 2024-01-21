@@ -76,8 +76,8 @@ def delete_student(id: int):
     
 @app.get("/predict/{id}")    
 def predict_stream(id: int):
-    predict_subject_stream(id)
-    return JSONResponse(content=jsonable_encoder([]), status_code=200)
+    res = predict_subject_stream(id)
+    return JSONResponse(content=jsonable_encoder(res), status_code=200)
     
     
 if __name__ == "__main__":
