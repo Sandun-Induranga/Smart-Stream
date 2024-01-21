@@ -88,6 +88,7 @@ const Student = () => {
             <TableBody>
               {studentList.map((row) => (
                 <TableRow
+                  hover
                   key={row.studentId}
                   onClick={() => {
                     handleSelectStudent(row);

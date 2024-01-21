@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import Student from "./StudentDataGrid/Student";
+import Student from "./Student/Student";
 
 const Home = () => {
   return (
