@@ -1,3 +1,5 @@
+import { Box } from "@mui/material";
+import { useEffect } from "react";
 import {
   BarChart,
   Bar,
@@ -8,27 +10,30 @@ import {
 } from "recharts";
 
 interface IPredictProps {
-  predicted_sub: string;
   streams: string[];
   scores: number[];
 }
 
 const ChartComponent = (props: IPredictProps) => {
-  const data = [];
-  for (let i = 0; i < props.streams.length; i++) {
-    data.push({ subject: props.streams[i], score: props.scores[i] });
-  }
+  const data = [{ subject: "A", score: 100 }];
+  useEffect(() => {
+    // for (let i = 0; i < props.streams.length; i++) {
+    //   data.push({
+    //     subject: props.streams[i],
+    //     score: props.scores[i],
+    //   });
+    // }
+  }, [props.streams, props.scores]);
 
   return (
-    <ResponsiveContainer width="100%" height="50%">
+    <Box width="100%" height={100}>
       <BarChart data={data}>
         <XAxis dataKey="subject" />
-        {/* <YAxis /> */}
         <Tooltip />
         <Legend />
         <Bar dataKey="score" fill="#8884d8" />
       </BarChart>
-    </ResponsiveContainer>
+    </Box>
   );
 };
 
