@@ -13,16 +13,16 @@ import {
   TableRow,
   TextField,
 } from "@mui/material";
-import { RootState, useAppDispatch } from "../../../redux/store";
+import { RootState, useAppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { studentActions } from "../../../redux/student/slice";
-import { generateAge } from "../../../util/generateAgeUtil";
+import { studentActions } from "../../redux/student/slice";
+import { generateAge } from "../../util/generateAgeUtil";
 import {
   validateAddress,
   validateMobile,
   validateName,
-} from "../../../util/validationUtil";
+} from "../../util/validationUtil";
 
 interface IStudentData {
   studentId: string;

@@ -77,4 +77,4 @@ def predict_subject_stream(id: int):
     plt.xlabel('Subjects')
     plt.ylabel('Predicted Scores')
     plt.show()
-    return {'predicted_sub': predicted_stream, 'streams': streams}
+    return {'predicted_sub': predicted_stream, 'streams': list(streams)}

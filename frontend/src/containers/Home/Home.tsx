@@ -5,6 +5,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import ChartComponent from "./components/ChartComponent";
 
 const Home = () => {
   return (
@@ -36,6 +37,7 @@ const Home = () => {
         </Box>
         <CircularProgress />
       </Box>
+      <ChartComponent />
     </Box>
   );
 };
