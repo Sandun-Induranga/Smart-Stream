@@ -4,7 +4,7 @@ from fastapi.responses import JSONResponse
 from pymongo import MongoClient
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from predictor_model.predictor_model import predict_stream
+from predictor_model.predictor_model import predict_subject_stream
 
 app = FastAPI()
 
@@ -76,8 +76,8 @@ def delete_student(id: int):
     
 @app.get("/predict/{id}")    
 def predict_stream(id: int):
-    predict_stream(id);
-    return JSONResponse(content=jsonable_encoder(), status_code=200)
+    predict_subject_stream(id)
+    return JSONResponse(content=jsonable_encoder([]), status_code=200)
     
     
 if __name__ == "__main__":

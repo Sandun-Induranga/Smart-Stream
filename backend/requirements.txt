@@ -1,7 +1,7 @@
-fastapi
-uvicorn
-pymongo
-pandas
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pymongo[srv]
+pandas==2.2.0
 matplotlib
-scikit-learn
-numpy
+scikit-learn==1.4.0
+numpy==1.22.4
