@@ -47,6 +47,8 @@ export const studentSlice = createSlice({
     predictStream: (state, action: PayloadAction<string>) => {},
     setStream: (state, action: PayloadAction<IPredictResponse>) => {
       state.predictedData = action.payload;
+      console.log("setStream");
+      console.log(state.predictedData);
     },
   },
 });

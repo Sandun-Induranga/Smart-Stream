@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   BarChart,
   Bar,
@@ -8,6 +8,8 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { RootState, useAppDispatch } from "../../../redux/store";
+import { useSelector } from "react-redux";
 
 interface IPredictProps {
   streams: string[];
@@ -15,26 +17,33 @@ interface IPredictProps {
 }
 
 const ChartComponent = (props: IPredictProps) => {
-  const data = [{ subject: "A", score: 100 }];
+  const dispatch = useAppDispatch();
+  const predictStream = useSelector(
+    (state: RootState) => state.studentList.predictedData
+  );
+  const [data, setData] = useState<{ subject: string; score: number }[]>([]);
   useEffect(() => {
-    console.log(props.streams);
-    for (let i = 0; i < props.streams.length; i++) {
-      data.push({
-        subject: props.streams[i],
-        score: props.scores[i],
-      });
+    if (predictStream.streams != null && predictStream.scores != null) {
+      console.log(predictStream);
+      for (let i = 0; i < 5; i++) {
+        setData([
+          ...data,
+          { subject: props.streams[i], score: props.scores[i] },
+        ]);
+      }
+      console.log(data);
     }
-  }, [props.streams, props.scores]);
+  }, [dispatch]);
 
   return (
-    // <ResponsiveContainer width="100%" height={100}>
-    <BarChart data={data}>
-      <XAxis dataKey="subject" />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="score" fill="#8884d8" />
-    </BarChart>
-    // </ResponsiveContainer>
+    <ResponsiveContainer width="100%" height={100}>
+      <BarChart data={data}>
+        <XAxis dataKey="subject" />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="score" fill="#8884d8" />
+      </BarChart>
+    </ResponsiveContainer>
   );
 };
 
