@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { api } from "../../api/api";
-import { studentActions } from "./slice";
+import { studentActions, studentReducer, studentSlice } from "./slice";
 import { toast } from "react-toastify";
 
 interface IStudentData {
@@ -97,6 +97,7 @@ function* predictStream(action: PayloadAction<string>) {
   try {
     const response: IPredictResponse = yield call(api.get, `/predict/${id}`);
     yield put(studentActions.setStream(response));
+    console.log(predictStream);
     toast("Predicted Successfully..!", { type: "success" });
   } catch (error) {
     toast("Something Went Wrong..!", { type: "error" });

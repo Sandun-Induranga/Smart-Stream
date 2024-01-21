@@ -17,23 +17,24 @@ interface IPredictProps {
 const ChartComponent = (props: IPredictProps) => {
   const data = [{ subject: "A", score: 100 }];
   useEffect(() => {
-    // for (let i = 0; i < props.streams.length; i++) {
-    //   data.push({
-    //     subject: props.streams[i],
-    //     score: props.scores[i],
-    //   });
-    // }
+    console.log(props.streams);
+    for (let i = 0; i < props.streams.length; i++) {
+      data.push({
+        subject: props.streams[i],
+        score: props.scores[i],
+      });
+    }
   }, [props.streams, props.scores]);
 
   return (
-    <Box width="100%" height={100}>
-      <BarChart data={data}>
-        <XAxis dataKey="subject" />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="score" fill="#8884d8" />
-      </BarChart>
-    </Box>
+    // <ResponsiveContainer width="100%" height={100}>
+    <BarChart data={data}>
+      <XAxis dataKey="subject" />
+      <Tooltip />
+      <Legend />
+      <Bar dataKey="score" fill="#8884d8" />
+    </BarChart>
+    // </ResponsiveContainer>
   );
 };
 
