@@ -58,10 +58,7 @@ const Home = () => {
 
         {/* <CircularProgress /> */}
       </Box>
-      <ChartComponent
-        scores={predictStream.scores}
-        streams={predictStream.streams}
-      />
+      <ChartComponent />
     </Box>
   );
 };
