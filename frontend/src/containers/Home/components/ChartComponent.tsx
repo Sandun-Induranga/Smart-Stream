@@ -2,23 +2,25 @@ import {
   BarChart,
   Bar,
   XAxis,
-  YAxis,
   Tooltip,
   Legend,
   ResponsiveContainer,
 } from "recharts";
 
-const ChartComponent = () => {
-  const data = [
-    { subject: "Maths", score: 60 },
-    { subject: "Science", score: 60 },
-    { subject: "Commerce", score: 45 },
-    { subject: "Arts", score: 75 },
-    { subject: "Technology", score: 90 },
-  ];
+interface IPredictProps {
+  predicted_sub: string;
+  streams: string[];
+  scores: number[];
+}
+
+const ChartComponent = (props: IPredictProps) => {
+  const data = [];
+  for (let i = 0; i < props.streams.length; i++) {
+    data.push({ subject: props.streams[i], score: props.scores[i] });
+  }
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height="50%">
       <BarChart data={data}>
         <XAxis dataKey="subject" />
         {/* <YAxis /> */}
