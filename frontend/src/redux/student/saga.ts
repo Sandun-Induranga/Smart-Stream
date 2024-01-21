@@ -96,6 +96,7 @@ function* predictStream(action: PayloadAction<string>) {
 
   try {
     const response: IPredictResponse = yield call(api.get, `/predict/${id}`);
+    yield put(studentActions.setStream(response));
     toast("Predicted Successfully..!", { type: "success" });
   } catch (error) {
     toast("Something Went Wrong..!", { type: "error" });
@@ -107,4 +108,5 @@ export function* studentSaga() {
   yield takeEvery(studentActions.updateStudent, updateStudent);
   yield takeEvery(studentActions.addStudent, saveStudent);
   yield takeEvery(studentActions.removeStudent, deleteStudent);
+  yield takeEvery(studentActions.predictStream, predictStream);
 }
