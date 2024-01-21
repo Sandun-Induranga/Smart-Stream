@@ -10,7 +10,7 @@ import {
 
 const ChartComponent = () => {
   const data = [
-    { subject: "Maths", score: 80 },
+    { subject: "Maths", score: 60 },
     { subject: "Science", score: 60 },
     { subject: "Commerce", score: 45 },
     { subject: "Arts", score: 75 },
@@ -21,7 +21,7 @@ const ChartComponent = () => {
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={data}>
         <XAxis dataKey="subject" />
-        <YAxis />
+        {/* <YAxis /> */}
         <Tooltip />
         <Legend />
         <Bar dataKey="score" fill="#8884d8" />

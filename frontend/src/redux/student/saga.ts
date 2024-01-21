@@ -17,6 +17,12 @@ interface IResponse {
   data: IStudentData[];
 }
 
+interface IPredictResponse {
+  predicted_sub: string;
+  streams: string[];
+  scores: number[];
+}
+
 function* saveStudent(action: PayloadAction<IStudentData>) {
   const { studentId, name, address, mobile, dob, gender } = action.payload;
 
@@ -80,6 +86,17 @@ function* deleteStudent(action: PayloadAction<string>) {
     yield call(api.delete, `/student/${id}`);
     toast("Student Deleted Successfully..!", { type: "success" });
     yield put(studentActions.fetchStudent());
+  } catch (error) {
+    toast("Something Went Wrong..!", { type: "error" });
+  }
+}
+
+function* predictStream(action: PayloadAction<string>) {
+  const id = action.payload;
+
+  try {
+    const response: IPredictResponse = yield call(api.get, `/predict/${id}`);
+    toast("Predicted Successfully..!", { type: "success" });
   } catch (error) {
     toast("Something Went Wrong..!", { type: "error" });
   }
