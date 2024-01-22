@@ -19,11 +19,14 @@ const Home = () => {
       sx={{
         py: 10,
         px: 10,
-        height: "100vh",
+        height: "50vh",
         display: "flex",
-        justifyContent: "end",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 30,
       }}
     >
+      <ChartComponent />
       <Box
         component={Paper}
         sx={{
@@ -33,10 +36,11 @@ const Home = () => {
           flexDirection: "column",
           width: "50%",
           height: "100%",
+          gap: "20px",
         }}
       >
         <Typography variant="h4">Stream Predictor</Typography>
-        <Box sx={{ height: "10px" }}>
+        <Box sx={{ px: 2 }}>
           <TextField
             label="Student ID"
             value={studentId}
@@ -44,6 +48,7 @@ const Home = () => {
               setStudentId(e.target.value);
             }}
             margin="normal"
+            fullWidth
           />
           <Button
             variant="contained"
@@ -51,14 +56,12 @@ const Home = () => {
             onClick={() => {
               dispatch(studentActions.predictStream(studentId));
             }}
+            fullWidth
           >
             Predict
           </Button>
         </Box>
-
-        {/* <CircularProgress /> */}
       </Box>
-      <ChartComponent />
     </Box>
   );
 };

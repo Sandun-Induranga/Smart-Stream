@@ -26,13 +26,12 @@ const ChartComponent = () => {
         subject: predictStream.streams[i],
         score: predictStream.scores[i],
       });
-      // }
     }
     setData(tempData);
   }, [predictStream.scores, predictStream.streams]);
 
   return (
-    <ResponsiveContainer width="100%" height={100}>
+    <ResponsiveContainer width="100%" height={300}>
       <BarChart data={data}>
         <XAxis dataKey="subject" />
         <Tooltip />
