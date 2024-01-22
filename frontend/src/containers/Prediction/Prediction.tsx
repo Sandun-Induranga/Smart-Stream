@@ -6,7 +6,7 @@ import { studentActions } from "../../redux/student/slice";
 import { useSelector } from "react-redux";
 import Footer from "../../components/Footer";
 
-const Home = () => {
+const Prediction = () => {
   const dispatch = useAppDispatch();
   const predictStream = useSelector(
     (state: RootState) => state.studentList.predictedData
@@ -68,4 +68,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Prediction;
