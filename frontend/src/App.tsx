@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import Home from "./containers/Home/Home";
+import Prediction from "./containers/Prediction/Prediction";
 import store from "./redux/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,7 +15,7 @@ const App = () => {
         pauseOnHover={true}
         draggable={true}
       />
-      <Home />
+      <Prediction />
     </Provider>
   );
 };
