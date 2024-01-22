@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { api } from "../../api/api";
-import { studentActions, studentSlice } from "./slice";
+import { studentActions } from "./slice";
 import { toast } from "react-toastify";
 
 interface IStudentData {
