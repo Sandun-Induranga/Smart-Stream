@@ -4,6 +4,7 @@ import { RootState, useAppDispatch } from "../../redux/store";
 import { useEffect, useState } from "react";
 import { studentActions } from "../../redux/student/slice";
 import { useSelector } from "react-redux";
+import Footer from "../../components/Footer";
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -62,6 +63,7 @@ const Home = () => {
           </Button>
         </Box>
       </Box>
+      <Footer />
     </Box>
   );
 };
