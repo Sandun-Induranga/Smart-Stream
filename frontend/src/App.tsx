@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Home from "./containers/Home/Home";
+import RootPage from "./containers/RootPage/RootPage";
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
         pauseOnHover={true}
         draggable={true}
       />
-      <Home />
+      <RootPage />
     </Provider>
   );
 };
