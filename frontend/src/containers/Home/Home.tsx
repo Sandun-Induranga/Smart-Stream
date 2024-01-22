@@ -1,5 +1,5 @@
 import { Box, Paper, Typography } from "@mui/material";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import studentsImage from "../../assets/students.jpg";
 import predictionImage from "../../assets/prediction.jpg";
 

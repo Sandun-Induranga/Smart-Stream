@@ -4,7 +4,7 @@ import { RootState, useAppDispatch } from "../../redux/store";
 import { useEffect, useState } from "react";
 import { studentActions } from "../../redux/student/slice";
 import { useSelector } from "react-redux";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 
 const Prediction = () => {
   const dispatch = useAppDispatch();
