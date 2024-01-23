@@ -5,10 +5,10 @@ import {
   SIGNIN_ROUTE,
   STUDENT_ROUTE,
 } from "../../constants/routes";
-import { Home } from "@mui/icons-material";
 import Student from "../Student/Student";
 import Prediction from "../Prediction/Prediction";
 import SignIn from "../SignIn/SignIn";
+import Home from "../Home/Home";
 
 const RootPage = () => {
   return (

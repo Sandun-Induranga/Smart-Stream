@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import signInImage from "../../assets/sign-in.jpg";
 import { useNavigate } from "react-router-dom";
+import { HOME_ROUTE } from "../../constants/routes";
+import { toast } from "react-toastify";
 
 interface ISignInData {
   email: string;
@@ -25,6 +27,15 @@ const SignIn = () => {
       email: email,
       password: password,
     };
+    if (
+      signInData.email === "admin@gmail.com" &&
+      signInData.password === "admin"
+    ) {
+      navigate(HOME_ROUTE);
+      toast("Successfully Signed In", { type: "success" });
+    } else {
+      toast("Invalid Credentials", { type: "error" });
+    }
   };
 
   return (
