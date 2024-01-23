@@ -61,7 +61,14 @@ const SignIn = () => {
               boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.2)",
             }}
           >
-            <h1>Sign In</h1>
+            <Typography
+              variant="h4"
+              color={"GrayText"}
+              align="center"
+              sx={{ mt: 2 }}
+            >
+              Sign In
+            </Typography>
             <TextField
               label="Username"
               value={email}
