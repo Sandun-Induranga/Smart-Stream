@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 import numpy as np
 
-def predict_subject_stream(id: int):
+def predict_subject_stream(id: int, name: str):
     # Read CSV file into a DataFrame
     df = pd.read_csv('./data/results.csv')
 
@@ -77,4 +77,4 @@ def predict_subject_stream(id: int):
     plt.xlabel('Subjects')
     plt.ylabel('Predicted Scores')
     plt.show()
-    return {'predicted_sub': predicted_stream, 'streams': list(streams.keys()), 'scores': list(streams.values())}
+    return {'predicted_sub': predicted_stream, 'streams': list(streams.keys()), 'scores': list(streams.values()), 'student': name}

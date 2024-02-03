@@ -21,6 +21,7 @@ interface IData {
   predicted_sub: string;
   streams: string[];
   scores: number[];
+  student: string;
 }
 
 interface IPredictResponse {

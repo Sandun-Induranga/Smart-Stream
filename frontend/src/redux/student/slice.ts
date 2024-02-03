@@ -18,6 +18,7 @@ interface IPredictResponse {
   predicted_sub: string;
   streams: string[];
   scores: number[];
+  student: string;
 }
 
 const initialState: IStudentState = {
@@ -26,6 +27,7 @@ const initialState: IStudentState = {
     predicted_sub: "",
     streams: [],
     scores: [],
+    student: "",
   },
 };
 
@@ -47,8 +49,6 @@ export const studentSlice = createSlice({
     predictStream: (state, action: PayloadAction<string>) => {},
     setStream: (state, action: PayloadAction<IPredictResponse>) => {
       state.predictedData = action.payload;
-      console.log("setStream");
-      console.log(state.predictedData);
     },
   },
 });

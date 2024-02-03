@@ -2,8 +2,12 @@ import { Box, Paper, Typography } from "@mui/material";
 import Footer from "../../components/Footer/Footer";
 import studentsImage from "../../assets/students.jpg";
 import predictionImage from "../../assets/prediction.jpg";
+import { useNavigate } from "react-router-dom";
+import { PREDICT_ROUTE, STUDENT_ROUTE } from "../../constants/routes";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <Box>
       <Typography variant="h4">Welcome to Smart Stream</Typography>
@@ -19,6 +23,7 @@ const Home = () => {
         <Box
           component={Paper}
           sx={{ p: 2, borderRadius: 4, cursor: "pointer" }}
+          onClick={() => navigate(STUDENT_ROUTE)}
         >
           <Box
             component={"img"}
@@ -37,6 +42,7 @@ const Home = () => {
         <Box
           component={Paper}
           sx={{ p: 2, borderRadius: 4, cursor: "pointer" }}
+          onClick={() => navigate(PREDICT_ROUTE)}
         >
           <Box
             component={"img"}

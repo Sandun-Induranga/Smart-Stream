@@ -74,9 +74,13 @@ def delete_student(id: int):
     else:
         raise HTTPException(status_code=404, detail="Student not found")
     
-@app.get("/predict/{id}")    
+@app.get("/predict/{id}")
 def predict_stream(id: int):
-    res = predict_subject_stream(id)
+    student = collection.find_one({"studentId": id})
+
+    if not student:
+        raise HTTPException(status_code=404, detail="Student not found")
+    res = predict_subject_stream(id, student['name'])
     return JSONResponse(content=jsonable_encoder(res), status_code=200)
     
     
