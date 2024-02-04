@@ -69,6 +69,17 @@ const Student = () => {
     setFormData(student);
   };
 
+  const hanldeClearForm = () => {
+    setFormData({
+      studentId: "",
+      name: "",
+      address: "",
+      mobile: "",
+      dob: "",
+      gender: "",
+    });
+  };
+
   return (
     <Grid container gap={2}>
       <Grid item xs={12} md={6}>

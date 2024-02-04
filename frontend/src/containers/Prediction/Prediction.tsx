@@ -1,4 +1,11 @@
-import { Box, Button, Paper, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 import ChartComponent from "./components/ChartComponent";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { useEffect, useState } from "react";
@@ -38,10 +45,19 @@ const Prediction = () => {
           width: "50%",
           height: "100%",
           gap: "20px",
+          p: 4,
         }}
       >
         <Typography variant="h4">Stream Predictor</Typography>
-        <Box sx={{ px: 2 }}>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
+        >
           <TextField
             label="Student ID"
             value={studentId}
@@ -51,8 +67,13 @@ const Prediction = () => {
             margin="normal"
             fullWidth
           />
+          {predictStream.student === "" && <CircularProgress />}
+          <Typography variant="h6" textAlign={"center"}>
+            {predictStream.student}
+          </Typography>
           <Button
             variant="contained"
+            color="success"
             sx={{ mt: 2 }}
             onClick={() => {
               dispatch(studentActions.predictStream(studentId));
@@ -60,6 +81,15 @@ const Prediction = () => {
             fullWidth
           >
             Predict
+          </Button>
+          <Button
+            variant="contained"
+            color="warning"
+            sx={{ mt: 2 }}
+            onClick={() => {}}
+            fullWidth
+          >
+            Reset
           </Button>
         </Box>
       </Box>
