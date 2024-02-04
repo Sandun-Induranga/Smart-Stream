@@ -1,11 +1,10 @@
 import {
   Chat,
-  CircleNotifications,
   Logout,
   NotificationsActive,
   VerifiedUser,
 } from "@mui/icons-material";
-import { Avatar, Box, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const TopBar = () => {
   return (
