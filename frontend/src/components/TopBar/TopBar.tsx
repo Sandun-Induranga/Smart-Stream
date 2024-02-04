@@ -1,5 +1,11 @@
-import { Chat, Logout, NotificationsActive } from "@mui/icons-material";
-import { Box, Typography } from "@mui/material";
+import {
+  Chat,
+  CircleNotifications,
+  Logout,
+  NotificationsActive,
+  VerifiedUser,
+} from "@mui/icons-material";
+import { Avatar, Box, Typography } from "@mui/material";
 
 const TopBar = () => {
   return (
@@ -17,8 +23,9 @@ const TopBar = () => {
         Smart Stream
       </Typography>
       <Box>
+        <VerifiedUser sx={{ color: "white", pr: 2 }} />
         <NotificationsActive sx={{ color: "white", pr: 2 }} />
-        <Chat sx={{ color: "white", pr: 2 }} />
+        <Chat sx={{ color: "white", pr: 4 }} />
         <Logout sx={{ color: "white", pr: 2 }} />
       </Box>
     </Box>
