@@ -219,6 +219,13 @@ const Student = () => {
             >
               Delete
             </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={hanldeClearForm}
+            >
+              Clear
+            </Button>
           </Box>
         </Box>
       </Grid>
