@@ -41,12 +41,15 @@ function* saveStudent(action: PayloadAction<IStudentData>) {
   };
 
   try {
+    yield put(studentActions.setStudentLoading(true));
     yield call(api.post, "/student", student, {
       headers: { "Content-Type": "application/json" },
     });
+    yield put(studentActions.setStudentLoading(false));
     toast("Student Added Successfully..!", { type: "success" });
     yield put(studentActions.fetchStudent());
   } catch (error) {
+    yield put(studentActions.setStudentLoading(false));
     toast("Something Went Wrong..!", { type: "error" });
   }
 }
@@ -64,22 +67,28 @@ function* updateStudent(action: PayloadAction<IStudentData>) {
   };
 
   try {
+    yield put(studentActions.setStudentLoading(true));
     yield call(api.put, `/student/${studentId}`, student, {
       headers: { "Content-Type": "application/json" },
     });
+    yield put(studentActions.setStudentLoading(false));
     toast("Student Updated Successfully..!", { type: "success" });
     yield put(studentActions.fetchStudent());
   } catch (error) {
+    yield put(studentActions.setStudentLoading(false));
     toast("Something Went Wrong..!", { type: "error" });
   }
 }
 
 function* getAllStudents() {
   try {
+    yield put(studentActions.setStudentLoading(true));
     const response: IResponse = yield call(api.get, "/student");
     yield put(studentActions.setStudent(response.data));
+    yield put(studentActions.setStudentLoading(false));
     toast("Student List Fetched..!", { type: "success" });
   } catch (error) {
+    yield put(studentActions.setStudentLoading(false));
     toast("Something Went Wrong..!", { type: "error" });
   }
 }
@@ -88,10 +97,13 @@ function* deleteStudent(action: PayloadAction<string>) {
   const id = action.payload;
 
   try {
+    yield put(studentActions.setStudentLoading(true));
     yield call(api.delete, `/student/${id}`);
+    yield put(studentActions.setStudentLoading(false));
     toast("Student Deleted Successfully..!", { type: "success" });
     yield put(studentActions.fetchStudent());
   } catch (error) {
+    yield put(studentActions.setStudentLoading(false));
     toast("Something Went Wrong..!", { type: "error" });
   }
 }
@@ -100,8 +112,10 @@ function* predictStream(action: PayloadAction<string>) {
   const id = action.payload;
 
   try {
+    yield put(studentActions.setStudentLoading(true));
     const response: IPredictResponse = yield call(api.get, `/predict/${id}`);
     yield put(studentActions.setStream(response.data));
+    yield put(studentActions.setStudentLoading(false));
     toast("Predicted Successfully..!", { type: "success" });
   } catch (error) {
     toast("Something Went Wrong..!", { type: "error" });

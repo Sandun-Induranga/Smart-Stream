@@ -12,6 +12,8 @@ interface IStudent {
 interface IStudentState {
   studentList: IStudent[];
   predictedData: IPredictResponse;
+  isStudentLoading: boolean;
+  isStreamLoading: boolean;
 }
 
 interface IPredictResponse {
@@ -29,6 +31,8 @@ const initialState: IStudentState = {
     scores: [],
     student: "",
   },
+  isStudentLoading: false,
+  isStreamLoading: false,
 };
 
 export const studentSlice = createSlice({
@@ -49,6 +53,12 @@ export const studentSlice = createSlice({
     predictStream: (state, action: PayloadAction<string>) => {},
     setStream: (state, action: PayloadAction<IPredictResponse>) => {
       state.predictedData = action.payload;
+    },
+    setStudentLoading: (state, action: PayloadAction<boolean>) => {
+      state.isStudentLoading = action.payload;
+    },
+    setStreamLoading: (state, action: PayloadAction<boolean>) => {
+      state.isStreamLoading = action.payload;
     },
   },
 });
