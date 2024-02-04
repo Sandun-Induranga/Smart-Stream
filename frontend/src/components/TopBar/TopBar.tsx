@@ -1,5 +1,8 @@
 import {
+  ArrowBack,
+  ArrowBackIos,
   Chat,
+  Home,
   Logout,
   NotificationsActive,
   VerifiedUser,
@@ -18,6 +21,12 @@ const TopBar = () => {
         boxShadow: 2,
       }}
     >
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <ArrowBackIos sx={{ color: "white", pl: 2 }} />
+        <Typography variant="body1" sx={{ color: "white" }}>
+          Back
+        </Typography>
+      </Box>
       <Typography variant="h6" sx={{ color: "white", fontWeight: 700 }}>
         Smart Stream
       </Typography>
