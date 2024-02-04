@@ -19,6 +19,9 @@ const Prediction = () => {
   const predictStream = useSelector(
     (state: RootState) => state.studentList.predictedData
   );
+  const isStreamLoading = useSelector(
+    (state: RootState) => state.studentList.isStreamLoading
+  );
   const [studentId, setStudentId] = useState<string>("");
 
   useEffect(() => {}, [dispatch]);
@@ -70,7 +73,7 @@ const Prediction = () => {
               margin="normal"
               fullWidth
             />
-            {predictStream.student === "" && <CircularProgress />}
+            {isStreamLoading && <CircularProgress />}
             <Typography variant="h6" textAlign={"center"}>
               {predictStream.student}
             </Typography>
@@ -96,8 +99,8 @@ const Prediction = () => {
             </Button>
           </Box>
         </Box>
-        <Footer />
       </Box>
+      <Footer />
     </>
   );
 };

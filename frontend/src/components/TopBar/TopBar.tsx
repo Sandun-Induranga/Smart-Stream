@@ -7,7 +7,7 @@ import {
 } from "@mui/icons-material";
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { HOME_ROUTE } from "../../constants/routes";
+import { HOME_ROUTE, SIGNIN_ROUTE } from "../../constants/routes";
 
 const TopBar = () => {
   const navigate = useNavigate();
@@ -38,7 +38,12 @@ const TopBar = () => {
         <VerifiedUser sx={{ color: "white", pr: 2 }} />
         <NotificationsActive sx={{ color: "white", pr: 2 }} />
         <Chat sx={{ color: "white", pr: 4 }} />
-        <Logout sx={{ color: "white", pr: 2 }} />
+        <Logout
+          sx={{ color: "white", pr: 2 }}
+          onClick={() => {
+            navigate(SIGNIN_ROUTE);
+          }}
+        />
       </Box>
     </Box>
   );
