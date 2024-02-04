@@ -12,6 +12,7 @@ import {
   TableHead,
   TableRow,
   TextField,
+  Typography,
 } from "@mui/material";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
@@ -84,7 +85,7 @@ const Student = () => {
   };
 
   return (
-    <Grid container gap={2}>
+    <Grid container gap={2} p={2}>
       <Grid item xs={12} md={6}>
         <TableContainer component={Paper}>
           <Table>
@@ -123,6 +124,9 @@ const Student = () => {
       </Grid>
       <Grid item xs={12} md={5} p={2} component={Paper}>
         <Box>
+          <Typography variant="h5" textAlign={"center"} color={"GrayText"}>
+            Manage Student
+          </Typography>
           <TextField
             label="Student ID"
             value={formData.studentId}
