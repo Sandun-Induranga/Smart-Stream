@@ -9,7 +9,7 @@ import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { HOME_ROUTE, SIGNIN_ROUTE } from "../../constants/routes";
 
-const TopBar = () => {
+const TopBar = ({ isHome = false }) => {
   const navigate = useNavigate();
   return (
     <Box
@@ -20,17 +20,20 @@ const TopBar = () => {
         justifyContent: "space-between",
         alignItems: "center",
         boxShadow: 2,
+        px: 4,
       }}
     >
-      <Box
-        sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
-        onClick={() => navigate(HOME_ROUTE)}
-      >
-        <ArrowBackIos sx={{ color: "white", pl: 2 }} />
-        <Typography variant="body1" sx={{ color: "white" }}>
-          Back
-        </Typography>
-      </Box>
+      {!isHome && (
+        <Box
+          sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+          onClick={() => navigate(HOME_ROUTE)}
+        >
+          <ArrowBackIos sx={{ color: "white", pl: 2 }} />
+          <Typography variant="body1" sx={{ color: "white" }}>
+            Back
+          </Typography>
+        </Box>
+      )}
       <Typography variant="h6" sx={{ color: "white", fontWeight: 700 }}>
         Smart Stream
       </Typography>

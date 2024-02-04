@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <>
-      <TopBar />
+      <TopBar isHome={true} />
       <Box>
         <Typography m={2} variant="h4" color={"Highlight"} textAlign={"center"}>
           Welcome to Smart Stream
