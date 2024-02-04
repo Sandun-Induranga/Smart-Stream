@@ -1,15 +1,16 @@
 import {
-  ArrowBack,
   ArrowBackIos,
   Chat,
-  Home,
   Logout,
   NotificationsActive,
   VerifiedUser,
 } from "@mui/icons-material";
 import { Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { HOME_ROUTE } from "../../constants/routes";
 
 const TopBar = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -21,7 +22,10 @@ const TopBar = () => {
         boxShadow: 2,
       }}
     >
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box
+        sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+        onClick={() => navigate(HOME_ROUTE)}
+      >
         <ArrowBackIos sx={{ color: "white", pl: 2 }} />
         <Typography variant="body1" sx={{ color: "white" }}>
           Back
