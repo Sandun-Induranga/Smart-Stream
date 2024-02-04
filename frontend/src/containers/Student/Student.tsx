@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  CircularProgress,
   Grid,
   MenuItem,
   Paper,
@@ -39,6 +40,9 @@ const Student = () => {
   const dispatch = useAppDispatch();
   const studentList = useSelector(
     (state: RootState) => state.studentList.studentList
+  );
+  const isStudentLoading = useSelector(
+    (state: RootState) => state.studentList.isStudentLoading
   );
   const [formData, setFormData] = useState<IStudentData>({
     studentId: "",
@@ -197,6 +201,22 @@ const Student = () => {
             <MenuItem value={"Male"}>Male</MenuItem>
             <MenuItem value={"Female"}>Female</MenuItem>
           </Select>
+          {isStudentLoading && (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                my: 2,
+                gap: 2,
+              }}
+            >
+              <CircularProgress color="warning" />
+              <Typography variant="h6" color={"GrayText"}>
+                Processing...
+              </Typography>
+            </Box>
+          )}
           <Box
             sx={{
               mt: 2,
