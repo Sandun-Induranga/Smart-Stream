@@ -78,7 +78,7 @@ const Prediction = () => {
               {predictStream.student}
             </Typography>
             <Typography variant="h6" color={"Highlight"} textAlign={"center"}>
-              {predictStream.predicted_sub}
+              {"✌ " + predictStream.predicted_sub + "✌ "}
             </Typography>
             <Button
               variant="contained"

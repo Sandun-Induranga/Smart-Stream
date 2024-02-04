@@ -219,7 +219,7 @@ const Student = () => {
               >
                 <CircularProgress color="warning" />
                 <Typography variant="h6" color={"GrayText"}>
-                  Processing...
+                  Processing ⌛...
                 </Typography>
               </Box>
             )}
