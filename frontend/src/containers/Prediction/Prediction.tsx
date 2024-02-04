@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { studentActions } from "../../redux/student/slice";
 import { useSelector } from "react-redux";
 import Footer from "../../components/Footer/Footer";
+import TopBar from "../../components/TopBar/TopBar";
 
 const Prediction = () => {
   const dispatch = useAppDispatch();
@@ -23,78 +24,81 @@ const Prediction = () => {
   useEffect(() => {}, [dispatch]);
 
   return (
-    <Box
-      sx={{
-        py: 10,
-        px: 10,
-        height: "50vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 30,
-      }}
-    >
-      <ChartComponent />
+    <>
+      <TopBar />
       <Box
-        component={Paper}
         sx={{
+          py: 10,
+          px: 10,
+          height: "50vh",
           display: "flex",
-          alignItems: "center",
           justifyContent: "center",
-          flexDirection: "column",
-          width: "50%",
-          height: "100%",
-          gap: "20px",
-          p: 4,
+          alignItems: "center",
+          gap: 30,
         }}
       >
-        <Typography variant="h4">Stream Predictor</Typography>
+        <ChartComponent />
         <Box
+          component={Paper}
           sx={{
-            width: "100%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
+            width: "50%",
+            height: "100%",
+            gap: "20px",
+            p: 4,
           }}
         >
-          <TextField
-            label="Student ID"
-            value={studentId}
-            onChange={(e) => {
-              setStudentId(e.target.value);
+          <Typography variant="h4">Stream Predictor</Typography>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
             }}
-            margin="normal"
-            fullWidth
-          />
-          {predictStream.student === "" && <CircularProgress />}
-          <Typography variant="h6" textAlign={"center"}>
-            {predictStream.student}
-          </Typography>
-          <Button
-            variant="contained"
-            color="success"
-            sx={{ mt: 2 }}
-            onClick={() => {
-              dispatch(studentActions.predictStream(studentId));
-            }}
-            fullWidth
           >
-            Predict
-          </Button>
-          <Button
-            variant="contained"
-            color="warning"
-            sx={{ mt: 2 }}
-            onClick={() => {}}
-            fullWidth
-          >
-            Reset
-          </Button>
+            <TextField
+              label="Student ID"
+              value={studentId}
+              onChange={(e) => {
+                setStudentId(e.target.value);
+              }}
+              margin="normal"
+              fullWidth
+            />
+            {predictStream.student === "" && <CircularProgress />}
+            <Typography variant="h6" textAlign={"center"}>
+              {predictStream.student}
+            </Typography>
+            <Button
+              variant="contained"
+              color="success"
+              sx={{ mt: 2 }}
+              onClick={() => {
+                dispatch(studentActions.predictStream(studentId));
+              }}
+              fullWidth
+            >
+              Predict
+            </Button>
+            <Button
+              variant="contained"
+              color="warning"
+              sx={{ mt: 2 }}
+              onClick={() => {}}
+              fullWidth
+            >
+              Reset
+            </Button>
+          </Box>
         </Box>
+        <Footer />
       </Box>
-      <Footer />
-    </Box>
+    </>
   );
 };
 
