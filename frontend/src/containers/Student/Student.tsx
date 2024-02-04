@@ -25,6 +25,7 @@ import {
   validateMobile,
   validateName,
 } from "../../util/validationUtil";
+import Footer from "../../components/Footer/Footer";
 
 interface IStudentData {
   studentId: string;
@@ -256,6 +257,7 @@ const Student = () => {
           </Box>
         </Box>
       </Grid>
+      <Footer />
     </Grid>
   );
 };
