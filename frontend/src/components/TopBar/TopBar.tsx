@@ -8,6 +8,7 @@ import {
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { HOME_ROUTE, SIGNIN_ROUTE } from "../../constants/routes";
+import logo from "../../assets/logo.png";
 
 const TopBar = ({ isHome = false }) => {
   const navigate = useNavigate();
@@ -34,7 +35,10 @@ const TopBar = ({ isHome = false }) => {
           </Typography>
         </Box>
       )}
-      <Typography variant="h6" sx={{ color: "white", fontWeight: 700 }}>
+      <Typography
+        variant="h6"
+        sx={{ color: "white", fontWeight: 1000, fontStyle: "italic" }}
+      >
         Smart Stream
       </Typography>
       <Box>

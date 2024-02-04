@@ -112,10 +112,10 @@ function* predictStream(action: PayloadAction<string>) {
   const id = action.payload;
 
   try {
-    yield put(studentActions.setStudentLoading(true));
+    yield put(studentActions.setStreamLoading(true));
     const response: IPredictResponse = yield call(api.get, `/predict/${id}`);
     yield put(studentActions.setStream(response.data));
-    yield put(studentActions.setStudentLoading(false));
+    yield put(studentActions.setStreamLoading(false));
     toast("Predicted Successfully..!", { type: "success" });
   } catch (error) {
     toast("Something Went Wrong..!", { type: "error" });
