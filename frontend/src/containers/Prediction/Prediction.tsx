@@ -74,8 +74,11 @@ const Prediction = () => {
               fullWidth
             />
             {isStreamLoading && <CircularProgress />}
-            <Typography variant="h6" textAlign={"center"}>
+            <Typography variant="body1" color={"GrayText"} textAlign={"center"}>
               {predictStream.student}
+            </Typography>
+            <Typography variant="h6" color={"Highlight"} textAlign={"center"}>
+              {predictStream.predicted_sub}
             </Typography>
             <Button
               variant="contained"

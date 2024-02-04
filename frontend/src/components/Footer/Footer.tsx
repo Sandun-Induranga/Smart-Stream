@@ -18,7 +18,7 @@ const Footer = () => {
         variant="caption"
         textAlign={"center"}
       >
-        Copyright @ Sandun Induranga
+        Copyright © Sandun Induranga
       </Typography>
     </Box>
   );
