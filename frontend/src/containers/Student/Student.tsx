@@ -55,14 +55,17 @@ const Student = () => {
 
   const handleSaveStudent = () => {
     dispatch(studentActions.addStudent(formData));
+    hanldeClearForm();
   };
 
   const handleUpdateStudent = () => {
     dispatch(studentActions.updateStudent(formData));
+    hanldeClearForm();
   };
 
   const handleDeleteStudent = () => {
     dispatch(studentActions.removeStudent(formData.studentId));
+    hanldeClearForm();
   };
 
   const handleSelectStudent = (student: IStudentData) => {
