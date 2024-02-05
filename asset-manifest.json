@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Smart-Stream/static/css/main.36737486.css",
+    "main.js": "/Smart-Stream/static/js/main.f480ed21.js",
+    "static/js/787.cda612ba.chunk.js": "/Smart-Stream/static/js/787.cda612ba.chunk.js",
+    "static/media/students.jpg": "/Smart-Stream/static/media/students.3bc81e6ce456b59f1cda.jpg",
+    "static/media/prediction.jpg": "/Smart-Stream/static/media/prediction.06624edb50560fbe36eb.jpg",
+    "static/media/sign-in.jpg": "/Smart-Stream/static/media/sign-in.9b8f7eef3fb225d15fbd.jpg",
+    "index.html": "/Smart-Stream/index.html",
+    "main.36737486.css.map": "/Smart-Stream/static/css/main.36737486.css.map",
+    "main.f480ed21.js.map": "/Smart-Stream/static/js/main.f480ed21.js.map",
+    "787.cda612ba.chunk.js.map": "/Smart-Stream/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36737486.css",
+    "static/js/main.f480ed21.js"
+  ]
+}
