@@ -1,7 +1,6 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://sandun-induranga.github.io/Smart-Stream/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -40,9 +39,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "eslintConfig": {
     "extends": [
