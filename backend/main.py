@@ -8,7 +8,7 @@ from predictor_model.predictor_model import predict_subject_stream
 
 app = FastAPI()
 
-client = MongoClient("mongodb+srv://sandu:1234@students.qfd4mdf.mongodb.net/")
+client = MongoClient("mongoURL")
 db = client["mydatabase"]
 collection = db["students"]
 
